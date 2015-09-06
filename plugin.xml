@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="ReJAsp"
+            id="br.ufscar.dc.rejasp">
+      </category>
+      <view
+            name="Indications"
+            icon="icons/aspect_indication.gif"
+            category="br.ufscar.dc.rejasp"
+            class="br.ufscar.dc.rejasp.views.IndicationTree"
+            id="br.ufscar.dc.rejasp.views.IndicationTree">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="br.ufscar.dc.rejasp.perspective.PerspectiveFactory"
+            icon="icons/aspect_indication.gif"
+            id="br.ufscar.dc.rejasp.perspective"
+            name="ReJAsp"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="rejasp.actionSet"
+            label="rejasp.actionSet"
+            visible="true">
+         <menu
+               id="IndicationMenu"
+               label="&amp;Indication">
+            <separator name="indicationGroup"/>
+         </menu>
+         <action
+               class="br.ufscar.dc.rejasp.actions.ManageIndications"
+               icon="icons/aspect_indication.gif"
+               id="br.ufscar.dc.rejasp.actions.ManageIndications"
+               label="&amp;Manage..."
+               menubarPath="IndicationMenu/indicationGroup"
+               toolbarPath="indicationGroup"
+               tooltip="Manage Indications"/>
+         <action
+               class="br.ufscar.dc.rejasp.actions.IntroductionFieldAction"
+               icon="icons/field.gif"
+               id="br.ufscar.dc.rejasp.actions.IntroductionFieldAction"
+               label="Introduction of &amp;Fields"
+               menubarPath="IndicationMenu/indicationGroup"
+               toolbarPath="indicationGroup"
+               tooltip="Introduction of fields to an aspect..."/>
+         <action
+               class="br.ufscar.dc.rejasp.actions.IntroductionMethodAction"
+               icon="icons/method.gif"
+               id="br.ufscar.dc.rejasp.actions.IntroductionMethodAction"
+               label="Introduction of &amp;Methods"
+               menubarPath="IndicationMenu/indicationGroup"
+               toolbarPath="indicationGroup"
+               tooltip="Introduction of methods to an aspect..."/>
+         <action
+               class="br.ufscar.dc.rejasp.actions.RefactoringAction"
+               icon="icons/statements.gif"
+               id="br.ufscar.dc.rejasp.actions.RefactoringAction"
+               label="Aspect &amp;Reorganization"
+               menubarPath="IndicationMenu/indicationGroup"
+               toolbarPath="indicationGroup"
+               tooltip="Reorganization of indication statements..."/>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="br.ufscar.dc.rejasp.preferences.pages.MainPreferencePage"
+            id="mainPage"
+            name="ReJAsp"/>
+   </extension>
+
+</plugin>
